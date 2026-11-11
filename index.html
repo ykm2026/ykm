@@ -663,6 +663,7 @@ function loadData(){
           state.schedule.forEach(function(s){s.isSample=false});
           state.completed.forEach(function(s){s.isSample=false});
           state.tasks.forEach(function(t){t.isSample=false});
+          state.logs=state.logs.filter(function(l){return !l.isSample});  /* ★ 清理内置示例日志，绝不带入显示/导出 */
           wb_syncFromSeed=true;  /* 标记为云端同步来源，徽标显示"多设备数据一致" */
         }
       }catch(e){}
@@ -684,6 +685,7 @@ function loadData(){
         state.schedule.forEach(function(s){s.isSample=false});
         state.completed.forEach(function(s){s.isSample=false});
         state.tasks.forEach(function(t){t.isSample=false});
+        state.logs=state.logs.filter(function(l){return !l.isSample});  /* ★ 清理内置示例日志，绝不带入显示/导出 */
       }
     }catch(e){}
   }
